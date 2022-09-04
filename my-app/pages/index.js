@@ -120,7 +120,11 @@ export default function Home() {
       const _joinedWhitelisted = await whitelistContract.whitelistedAddresses(
         address
       );
-      setJoinedWhitelist(_joinedWhitelisted);
+      if (address === _joinedWhitelisted) {
+        alert('Address already Whitelisted');
+      } else {
+        setJoinedWhitelist(_joinedWhitelisted);
+      }
     } catch (err) {
       console.log(err);
     }
