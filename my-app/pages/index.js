@@ -100,7 +100,6 @@ export default function Home() {
       const _numberOfWhitelisted =
         await whitelistContract.numAddressesWhitelisted();
       setNumberOfWhitelisted(_numberOfWhitelisted);
-      console.log('Number of Whitelisted Addresses:', _numberOfWhitelisted);
     } catch (err) {
       console.error(err);
     }
@@ -203,10 +202,8 @@ export default function Home() {
       </Head>
       <div className={styles.main}>
         <div>
-          <h1 className={styles.title}>Welcome to Crypto Devs!</h1>
-          <div className={styles.description}>
-            Its an NFT collection for developers in Crypto.
-          </div>
+          <h1 className={styles.title}>Welcome to My WhiteList Address dAPP</h1>
+          <div className={styles.description}>I'm trying to learn dAPP's.</div>
           <div className={styles.description}>
             {numberOfWhitelisted} have already joined the Whitelist
           </div>
@@ -217,9 +214,7 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className={styles.footer}>
-        Made with &#10084; by Crypto Devs
-      </footer>
+      <footer className={styles.footer}>Made with &#10084; by Chad</footer>
     </div>
   );
 }
