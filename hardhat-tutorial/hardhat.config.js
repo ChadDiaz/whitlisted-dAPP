@@ -8,7 +8,7 @@ const GOERLI_PRIVATE_KEY = process.env.GOERLI_PRIVATE_KEY;
 module.exports = {
   solidity: "0.8.9",
   networks: {
-    goerli: {
+    goerli test network: {
       url: ALCHEMY_API_KEY_URL,
       accounts: [GOERLI_PRIVATE_KEY],
     },
