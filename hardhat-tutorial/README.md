@@ -1,5 +1,6 @@
 # Sample Hardhat Project
 
+0x2293735BB55d12601c78d5E9C8FDf787f7e1acE5
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
 
 Try running some of the following tasks:
