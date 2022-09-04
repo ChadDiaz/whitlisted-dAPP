@@ -64,14 +64,18 @@ export default function Home() {
         signer
       );
       // call the addAddressToWhitelist from the contract
-      const tx = await whitelistContract.addAddressToWhitelist();
-      setLoading(true);
-      // wait for the transaction to get mined
-      await tx.wait();
-      setLoading(false);
-      // get the updated number of addresses in the whitelist
-      await getNumberOfWhitelisted();
-      setJoinedWhitelist(true);
+      if (!whitelistContract.address) {
+        const tx = await whitelistContract.addAddressToWhitelist();
+        setLoading(true);
+        // wait for the transaction to get mined
+        await tx.wait();
+        setLoading(false);
+        // get the updated number of addresses in the whitelist
+        await getNumberOfWhitelisted();
+        setJoinedWhitelist(true);
+      } else {
+        alert('Address has already been Whitelisted');
+      }
     } catch (err) {
       console.error(err);
     }
@@ -117,14 +121,11 @@ export default function Home() {
       // get the address associated to the signer which is connected to MetaMask
       const address = await signer.getAddress();
       // call the whitelistedAddresses from the contract
+      console.log('this is the address from CheckIf Address: ', address);
       const _joinedWhitelisted = await whitelistContract.whitelistedAddresses(
         address
       );
-      if (address === _joinedWhitelisted) {
-        alert('Address already Whitelisted');
-      } else {
-        setJoinedWhitelist(_joinedWhitelisted);
-      }
+      // console.log('this is the _joinedWhiteList address: ', _joinedWhitelisted);
     } catch (err) {
       console.log(err);
     }
