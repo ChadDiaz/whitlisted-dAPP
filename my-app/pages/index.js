@@ -100,6 +100,7 @@ export default function Home() {
       const _numberOfWhitelisted =
         await whitelistContract.numAddressesWhitelisted();
       setNumberOfWhitelisted(_numberOfWhitelisted);
+      console.log('Number of Whitelisted Addresses:', _numberOfWhitelisted);
     } catch (err) {
       console.error(err);
     }
@@ -118,16 +119,19 @@ export default function Home() {
         abi,
         signer
       );
-      // get the address associated to the signer which is connected to MetaMask
+      // Get the address associated to the signer which is connected to  MetaMask
       const address = await signer.getAddress();
       // call the whitelistedAddresses from the contract
-      console.log('this is the address from CheckIf Address: ', address);
-      const _joinedWhitelisted = await whitelistContract.whitelistedAddresses(
+      const _joinedWhitelist = await whitelistContract.whitelistedAddresses(
         address
       );
-      // console.log('this is the _joinedWhiteList address: ', _joinedWhitelisted);
+      if (address === _joinedWhitelist) {
+        setJoinedWhitelist(_joinedWhitelist);
+      } else {
+        console.log('Address has already been Whitelisted');
+      }
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
   /*
