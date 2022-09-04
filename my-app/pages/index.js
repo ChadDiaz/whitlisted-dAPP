@@ -104,6 +104,7 @@ export default function Home() {
       console.error(err);
     }
   };
+
   /**
    * checkIfAddressInWhitelist: Checks if the address is in whitelist
    */
@@ -144,6 +145,7 @@ export default function Home() {
       setWalletConnected(true);
       checkIfAddressInWhitelist();
       getNumberOfWhitelisted();
+      console.log('this is number of whitelisted: ', numberOfWhitelisted);
     } catch (err) {
       console.log(err);
     }
