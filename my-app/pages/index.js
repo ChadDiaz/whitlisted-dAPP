@@ -36,7 +36,6 @@ export default function Home() {
     // since we stored Web3Modal as a reference, we need to access the current 'value' to get access to the underlying object //
     const provider = await web3ModalRef.current.connect();
     const web3Provider = new providers.Web3Provider(provider);
-    console.log('this is the web3Provider', web3Provider);
 
     // if user is not connected to the goerli network, let them know and throw an error//
     const { chainId } = await web3Provider.getNetwork();
