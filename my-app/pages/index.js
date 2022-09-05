@@ -81,6 +81,7 @@ export default function Home() {
    * getNumberOfWhitelisted:  gets the number of whitelisted addresses
    */
   const getNumberOfWhitelisted = async () => {
+    console.log('Number of whitelisted 1: ', numberOfWhitelisted);
     try {
       // Get the provider from web3Modal, which in our case is MetaMask
       // No need for the Signer here, as we are only reading state from the blockchain
@@ -92,6 +93,7 @@ export default function Home() {
         abi,
         provider
       );
+      console.log('Number of whitelisted 2: ', numberOfWhitelisted);
       // call the numAddressesWhitelisted from the contract
       const _numberOfWhitelisted =
         await whitelistContract.numAddressesWhitelisted();
@@ -99,6 +101,7 @@ export default function Home() {
     } catch (err) {
       console.error(err);
     }
+    console.log('number of whitelisted 3: ', numberOfWhitelisted);
   };
 
   /**
@@ -141,7 +144,6 @@ export default function Home() {
       setWalletConnected(true);
       checkIfAddressInWhitelist();
       getNumberOfWhitelisted();
-      console.log('this is number of whitelisted: ', numberOfWhitelisted);
     } catch (err) {
       console.log(err);
     }
